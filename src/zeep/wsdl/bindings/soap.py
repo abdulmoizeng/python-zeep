@@ -367,11 +367,11 @@ class SoapOperation(Operation):
 
     def process_reply(self, envelope):
         envelope_qname = etree.QName(self.nsmap['soap-env'], 'Envelope')
-        if envelope.tag != envelope_qname:
-            raise XMLSyntaxError((
-                "The XML returned by the server does not contain a valid " +
-                "{%s}Envelope root element. The root element found is %s "
-            ) % (envelope_qname.namespace, envelope.tag))
+        #if envelope.tag != envelope_qname:
+        #    raise XMLSyntaxError((
+        #        "The XML returned by the server does not contain a valid " +
+        #        "{%s}Envelope root element. The root element found is %s "
+        #    ) % (envelope_qname.namespace, envelope.tag))
 
         if self.output:
             return self.output.deserialize(envelope)
